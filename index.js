@@ -11,7 +11,7 @@ module.exports = function(coffeeBreak) {
 
         //Skip runner on node tests
         if (!conf.browser) {
-            console.log('Skip tests with phantomjs');
+            logger.dev('Skipping node tests in PhantomJS runner');
             done();
             return;
         }
