@@ -1,0 +1,16 @@
+{
+  "name": "coffeebreak-phantomjs-runner",
+  "description": "Runs phantomjs test with CoffeeBreak",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": {
+    "name": "\"AndiOxidant\" Andi Heinkelein",
+    "email": "andi.AndiOxidantxidant@noname-media.com"
+  },
+  "keywords": "coffeebreak-plugin test unittest testrunner mocha coffeebreak phantomjs",
+  "license": "MIT",
+  "dependencies": {
+    "phantomjs": "^1.9.7-14",
+    "mocha-phantomjs": "^3.5.0"
+  }
+}
