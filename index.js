@@ -20,7 +20,7 @@ module.exports = function(coffeeBreak) {
 
         var command = path.join(__dirname, '/node_modules/.bin/mocha-phantomjs');
         var args = [
-            'http://localhost:3005/projects/' + conf.project + '/SpecRunner.html'
+            'http://localhost:' + coffeeBreak.port + '/projects/' + conf.project + '/SpecRunner.html'
         ];
 
         var child = spawn(command, args);
