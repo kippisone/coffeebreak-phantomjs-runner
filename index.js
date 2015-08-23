@@ -7,7 +7,7 @@ var path = require('path'),
 module.exports = function(coffeeBreak) {
 	"use strict";
 
-	coffeeBreak.registerTask('test', function(project, done) {
+	coffeeBreak.registerTask('test', function(project, session, done) {
 
         //Skip runner on node tests
         if (!project.browser) {
@@ -18,6 +18,8 @@ module.exports = function(coffeeBreak) {
 
         process.stdout.write('\n  \u001b[1;4;38;5;246mRun browser tests of project ' + project.project + ' using PhantomJS\u001b[m\n\n');
 
+        session.state('new', 'Run phantom tests');
+        
         var command = path.join(__dirname, '/node_modules/.bin/mocha-phantomjs');
         var args = [
             'http://localhost:' + coffeeBreak.port + '/projects/' + project.project + '/SpecRunner.html'
