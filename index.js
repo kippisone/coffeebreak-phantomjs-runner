@@ -10,7 +10,7 @@ module.exports = function(coffeeBreak) {
 	coffeeBreak.registerTask('test', function(project, session, done) {
 
         //Skip runner on node tests
-        if (!project.browser) {
+        if (project.environment !== 'browser') {
             coffeeBreak.debug('Skipping node tests in PhantomJS runner');
             done();
             return;
@@ -18,8 +18,6 @@ module.exports = function(coffeeBreak) {
 
         process.stdout.write('\n  \u001b[1;4;38;5;246mRun browser tests of project ' + project.project + ' using PhantomJS\u001b[m\n\n');
 
-        session.state('new', 'Run phantom tests');
-        
         var command = path.join(__dirname, '/node_modules/.bin/mocha-phantomjs');
         var args = [
             'http://localhost:' + coffeeBreak.port + '/projects/' + project.project + '/SpecRunner.html'
@@ -38,8 +36,7 @@ module.exports = function(coffeeBreak) {
             done(null);
         });
 
-        session.on('end', function() {
-            console.log('SESS END');
+        session.once('end', function() {
             child.kill('SIGHUP');
         });
 	});
