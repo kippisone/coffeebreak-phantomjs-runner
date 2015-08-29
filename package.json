@@ -10,7 +10,6 @@
   "keywords": "coffeebreak-plugin test unittest testrunner mocha coffeebreak phantomjs",
   "license": "MIT",
   "dependencies": {
-    "mocha-phantomjs": "^3.6.0",
-    "phantomjs": "^1.9.18"
+    "mocha-phantomjs": "^3.6.0"
   }
 }
