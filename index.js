@@ -36,6 +36,11 @@ module.exports = function(coffeeBreak) {
 
         child.on('close', function (code) {
             done(null);
-        });		
+        });
+
+        session.on('end', function() {
+            console.log('SESS END');
+            child.kill('SIGHUP');
+        });
 	});
 };
